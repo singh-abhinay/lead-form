@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="schoolmart_lead">
+        <column xsi:type="int" name="id" padding="10" unsigned="false" nullable="false"
+                identity="true" comment="ID"/>
+        <column xsi:type="varchar" name="school_name" nullable="false" length="255"
+                comment="School Name"/>
+        <column xsi:type="varchar" name="school_email" nullable="false" length="255"
+                comment="School Email"/>
+        <column xsi:type="varchar" name="contact_number" nullable="false" length="255"
+                comment="Contact Number"/>
+        <column xsi:type="varchar" name="location" nullable="false" length="512"
+                comment="location"/>
+        <column xsi:type="varchar" name="school_board" nullable="false" length="255"
+                comment="School Board"/>
+        <column xsi:type="varchar" name="school_infrastructure" nullable="false" length="255"
+                comment="School Infrastructure"/>
+        <column xsi:type="varchar" name="school_infrastructure_comment" nullable="false" length="512"
+                comment="School Infrastructure Comment"/>
+        <column xsi:type="varchar" name="digital_infrastructure" nullable="false" length="255"
+                comment="Digital Infrastructure"/>
+        <column xsi:type="varchar" name="digital_infrastructure_comment" nullable="false" length="512"
+                comment="Digital Infrastructure Comment"/>
+        <column xsi:type="varchar" name="edtech_content" nullable="false" length="255"
+                comment="Edtech Content"/>
+        <column xsi:type="varchar" name="edtech_content_comment" nullable="false" length="512"
+                comment="Edtech Content Comment"/>
+        <column xsi:type="varchar" name="smart_sports_physical_education" nullable="false" length="255"
+                comment="Smart Sports Physical Education"/>
+        <column xsi:type="varchar" name="smart_sports_physical_education_comment" nullable="false" length="512"
+                comment="Smart Sports Physical Education Comment"/>
+        <column xsi:type="varchar" name="skill_development_programs" nullable="false" length="255"
+                comment="Skill Development Programs"/>
+        <column xsi:type="varchar" name="skill_development_programs_comment" nullable="false" length="512"
+                comment="Skill Development Programs Comment"/>
+        <column xsi:type="varchar" name="gamification_science_math" nullable="false" length="255"
+                comment="Gamification Science Math"/>
+        <column xsi:type="varchar" name="gamification_science_math_comment" nullable="false" length="512"
+                comment="Gamification Science Math Comment"/>
+        <column xsi:type="varchar" name="interest_further_support" nullable="false" length="255"
+                comment="Interest Further Support"/>
+        <column xsi:type="varchar" name="interest_further_support_comment" nullable="false" length="512"
+                comment="Interest Further Support Comment"/>
+        <column xsi:type="varchar" name="additional_comment" nullable="false" length="512"
+                comment="Additional Comment"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Creation Time"/>
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Update Time"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+</schema>

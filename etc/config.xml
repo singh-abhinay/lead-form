@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <leadform>
+            <general>
+                <header_title>Partner School Participation Form</header_title>
+                <header_content>Join our community and enjoy VIP access to special offers, insider updates, and more!
+                </header_content>
+            </general>
+        </leadform>
+    </default>
+</config>

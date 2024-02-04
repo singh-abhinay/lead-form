@@ -1,0 +1,32 @@
+{
+    "schoolmart_lead": {
+        "column": {
+            "id": true,
+            "school_name": true,
+            "school_email": true,
+            "location": true,
+            "school_board": true,
+            "school_infrastructure": true,
+            "school_infrastructure_comment": true,
+            "digital_infrastructure": true,
+            "digital_infrastructure_comment": true,
+            "edtech_content": true,
+            "edtech_content_comment": true,
+            "smart_sports_physical_education": true,
+            "smart_sports_physical_education_comment": true,
+            "skill_development_programs": true,
+            "skill_development_programs_comment": true,
+            "gamification_science_math": true,
+            "gamification_science_math_comment": true,
+            "interest_further_support": true,
+            "interest_further_support_comment": true,
+            "additional_comment": true,
+            "created_at": true,
+            "updated_at": true,
+            "contact_number": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="leadform" translate="label" sortOrder="100">
+            <label>Lead Form</label>
+        </tab>
+        <section id="leadform" translate="label" type="text" sortOrder="200" showInDefault="1" showInWebsite="1"
+                 showInStore="1">
+            <label>Lead Form</label>
+            <tab>leadform</tab>
+            <resource>Abhinay_LeadForm::configuration</resource>
+            <group id="general" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>Lead Form Content</label>
+                <field id="header_title" translate="label comment" type="text" sortOrder="90" showInDefault="1"
+                       showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Header Title</label>
+                    <comment><![CDATA[ <p>Please add your content for header title.</p> ]]></comment>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="header_content" translate="label" type="textarea" sortOrder="20" showInDefault="1"
+                       showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Lead Form Header Content</label>
+                    <comment><![CDATA[ <p>Please add your content for header content.</p> ]]></comment>
+                    <validate>required-entry</validate>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

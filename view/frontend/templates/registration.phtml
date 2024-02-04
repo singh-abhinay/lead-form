@@ -1,0 +1,352 @@
+<?php
+
+$viewModel = $block->getData('view_model');
+$formKey = $viewModel->getFormKey();
+$baseUrl = $viewModel->getBaseUrl();
+$headerContent = $viewModel->getHeaderContent();
+$headerTitle = $viewModel->getHeaderTitle();
+?>
+
+<style>
+    .header-title {
+        position: relative;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        max-width: 100%;
+        word-break: keep-all;
+        text-align: center;
+        font-weight: bold;
+        color: black;
+    }
+
+    .pageTitleDesc .pageDesc {
+        font-family: Arial, sans-serif;
+        font-size: 17px;
+        color: black;
+    }
+
+    p {
+        margin: 0 0 10px;
+    }
+
+    pageTitleDesc {
+        border-bottom-color: #000000;
+        font-size: 16px;
+    }
+
+    .pageTitleDesc {
+        position: relative;
+        margin-bottom: 40px;
+        border-bottom: 3px solid #000000;
+        border-bottom-color: rgb(0, 0, 0);
+        padding: 0 0 25px;
+        text-align: center
+    }
+
+    .csc-form-label {
+        font-size: 16px;
+        color: black !important;
+    }
+
+    .form-check-label {
+        padding: 1px;
+    }
+
+    input[type="email"]::placeholder {
+        color: black !important;
+    }
+
+    input[type="text"]::placeholder {
+        color: black !important;
+    }
+
+    input[type="number"]::placeholder {
+        color: black !important;
+    }
+
+    .header-branding {
+        text-align: center;
+    }
+
+    .header-title-ques {
+        font-size: 16px;
+        font-weight: bold;
+        color: black;
+    }
+</style>
+
+<div class="container mt-5">
+    <div class="header-branding">
+        <h2 class="header-title"><?= $headerTitle; ?></h2>
+    </div>
+    <div class="pageTitleDesc" id="page_header">
+        <p class="pageDesc" name="descMsg"><?= $headerContent ?></p><br>
+    </div>
+    <form class="form" action="<?= $baseUrl . 'lead/survey/save' ?>" method="post" style="color: black !important;">
+        <fieldset class="fieldset bussiness-info">
+            <p class="header-title-ques">Join us in shaping your school's future with latest in school education click
+                on this link to participate.</p>
+            <div class="field required">
+                <label for="school_name"
+                       class="label"><span><?= $escaper->escapeHtml(__('School Name')) ?></span></label>
+                <div class="control">
+                    <input id="school_name" type="text" name="school_name" value="" placeholder="School Name"
+                           class="input-text required-entry" required="required">
+                </div>
+            </div>
+            <div class="field required">
+                <label for="school_email"
+                       class="label"><span><?= $escaper->escapeHtml(__('Contact Email')) ?></span></label>
+                <div class="control">
+                    <input id="school_email" type="email" name="school_email" value="" placeholder="Contact Email"
+                           class="input-text required-entry" required="required">
+                </div>
+            </div>
+            <div class="field required">
+                <label for="contact_number"
+                       class="label"><span><?= $escaper->escapeHtml(__('Contact Number')) ?></span></label>
+                <div class="control">
+                    <input id="contact_number" type="number" name="contact_number" value="" placeholder="Contact Number"
+                           class="input-text required-entry" required="required">
+                </div>
+            </div>
+            <div class="field required">
+                <label for="location" class="label"><span><?= $escaper->escapeHtml(__('Location')) ?></span></label>
+                <div class="control">
+                    <input id="location" type="text" name="location" value="" placeholder="City/Town"
+                           class="input-text required-entry" required="required">
+                </div>
+            </div>
+
+            <!--school board-->
+            <div class="csc-form-group field required">
+                <label for="school_board" class="form-label csc-form-label">Affiliation:</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="cbse"
+                           name="school_board" value="CBSE">
+                    <label class="form-check-label" for="cbse">CBSE</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="other_board"
+                           name="school_board" value="Other Boards">
+                    <label class="form-check-label" for="other_board">Other Boards</label>
+                </div>
+            </div>
+
+            <!--school Insfra-->
+            <div class="csc-form-group field required">
+                <p class="header-title-ques">1. School Infrastructure:</p>
+                <label for="school_infrastructure" class="form-label csc-form-label">a. Is your school's physical
+                    infrastructure aligned with the requirements of the National Education Policy (NEP)?</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="school_infrastructure_yes"
+                           name="school_infrastructure" value="Yes" required>
+                    <label class="form-check-label" for="school_infrastructure_yes">Yes</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="school_infrastructure_no"
+                           name="school_infrastructure" value="No" required>
+                    <label class="form-check-label" for="school_infrastructure_no">No</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="school_infrastructure_other"
+                           name="school_infrastructure" value="In Progress" required>
+                    <label class="form-check-label" for="school_infrastructure_other">In Progress</label>
+                </div>
+                <div class="form-group csc-form-group">
+                    <label for="school_infrastructure_comment">If 'No' or 'In Progress', briefly specify the areas that
+                        need improvement:</label>
+                    <textarea class="form-control" id="school_infrastructure_comment" rows="3"
+                              name="school_infrastructure_comment"></textarea>
+                </div>
+            </div>
+
+            <!--digital Insfra-->
+            <div class="csc-form-group field required">
+                <p class="header-title-ques">2. Digital Infrastructure:</p>
+                <label for="digital_infrastructure" class="form-label csc-form-label">a. Does your school have adequate
+                    digital infrastructure to support modern teaching methodologies as per NEP guidelines?</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="digital_infrastructure_yes"
+                           name="digital_infrastructure" value="Yes" required>
+                    <label class="form-check-label" for="digital_infrastructure_yes">Yes</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="digital_infrastructure_no"
+                           name="digital_infrastructure" value="No" required>
+                    <label class="form-check-label" for="digital_infrastructure_no">No</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="digital_infrastructure_other"
+                           name="digital_infrastructure" value="Partially" required>
+                    <label class="form-check-label" for="digital_infrastructure_other">Partially</label>
+                </div>
+                <div class="form-group csc-form-group">
+                    <label for="digital_infrastructure_comment"> If 'No' or 'Partially', please mention the challenges
+                        faced and the steps taken to address them:</label>
+                    <textarea class="form-control" id="digital_infrastructure_comment" rows="3"
+                              name="digital_infrastructure_comment"></textarea>
+                </div>
+            </div>
+
+            <!--EdTech Content-->
+            <div class="csc-form-group field required">
+                <p class="header-title-ques">3. EdTech Content:</p>
+                <label for="edtech_content" class="form-label csc-form-label">a. Are you currently using educational
+                    technology (EdTech) content that aligns with the new NEP curriculum?</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="edtech_content_yes" name="edtech_content"
+                           value="Yes" required>
+                    <label class="form-check-label" for="edtech_content_yes">Yes</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="edtech_content_no" name="edtech_content"
+                           value="No" required>
+                    <label class="form-check-label" for="edtech_content_no">No</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="edtech_content_other" name="edtech_content"
+                           value="Exploring Options" required>
+                    <label class="form-check-label" for="edtech_content_other">Exploring Options</label>
+                </div>
+                <div class="form-group csc-form-group">
+                    <label for="edtech_content_comment">If 'Exploring Options' or 'No', what kind of support or
+                        resources do you require to integrate NEP-aligned EdTech content?</label>
+                    <textarea class="form-control" id="edtech_content_comment" rows="3"
+                              name="edtech_content_comment"></textarea>
+                </div>
+            </div>
+
+            <!--Smart Sports and Physical Education:-->
+            <div class="csc-form-group field required">
+                <p class="header-title-ques">4. Smart Sports and Physical Education:</p>
+                <label for="smart_sports_physical_education" class="form-label csc-form-label">a. Has your school
+                    implemented smart sports and physical education practices in line with the NEP
+                    recommendations?</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="smart_sports_physical_education_yes"
+                           name="smart_sports_physical_education" value="Yes" required>
+                    <label class="form-check-label" for="smart_sports_physical_education_yes">Yes</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="smart_sports_physical_education_no"
+                           name="smart_sports_physical_education" value="No" required>
+                    <label class="form-check-label" for="smart_sports_physical_education_no">No</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="smart_sports_physical_education_other"
+                           name="smart_sports_physical_education" value="Planning to Implement" required>
+                    <label class="form-check-label" for="smart_sports_physical_education_other">Planning to
+                        Implement</label>
+                </div>
+                <div class="form-group csc-form-group">
+                    <label for="smart_sports_physical_education_comment">If 'No' or 'Planning to Implement', outline
+                        your plans or challenges in adopting smart sports and physical education practices.</label>
+                    <textarea class="form-control" id="smart_sports_physical_education_comment" rows="3"
+                              name="smart_sports_physical_education_comment"></textarea>
+                </div>
+            </div>
+
+            <!--Skill Development Programs:-->
+            <div class="csc-form-group field required">
+                <p class="header-title-ques">5. Skill Development Programs:</p>
+                <label for="skill_development_programs" class="form-label csc-form-label">a. Is your school offering
+                    skill development programs as emphasized by the NEP?</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="skill_development_programs_yes"
+                           name="skill_development_programs" value="Yes" required>
+                    <label class="form-check-label" for="skill_development_programs_yes">Yes</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="skill_development_programs_no"
+                           name="skill_development_programs" value="No" required>
+                    <label class="form-check-label" for="skill_development_programs_no">No</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="skill_development_programs_other"
+                           name="skill_development_programs" value="Limited" required>
+                    <label class="form-check-label" for="skill_development_programs_other">Limited</label>
+                </div>
+                <div class="form-group csc-form-group">
+                    <label for="skill_development_programs_comment">If 'Limited' or 'No', what steps are you planning to
+                        take to enhance skill development initiatives?</label>
+                    <textarea class="form-control" id="skill_development_programs_comment" rows="3"
+                              name="skill_development_programs_comment"></textarea>
+                </div>
+            </div>
+
+
+            <!--Gamification in Science and Math:-->
+            <div class="csc-form-group field required">
+                <p class="header-title-ques">6. Gamification in Science and Math:</p>
+                <label for="gamification_science_math" class="form-label csc-form-label">a. Is your school offering
+                    skill development programs as emphasized by the NEP?</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="gamification_science_math_yes"
+                           name="gamification_science_math" value="Yes" required>
+                    <label class="form-check-label" for="gamification_science_math_yes">Yes</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="gamification_science_math_no"
+                           name="gamification_science_math" value="No" required>
+                    <label class="form-check-label" for="gamification_science_math_no">No</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="gamification_science_math_other"
+                           name="gamification_science_math" value="Considering" required>
+                    <label class="form-check-label" for="gamification_science_math_other">Considering</label>
+                </div>
+                <div class="form-group csc-form-group">
+                    <label for="gamification_science_math_comment">If 'Considering' or 'No', please share your thoughts
+                        on the challenges or plans related to integrating gamification in these subjects.</label>
+                    <textarea class="form-control" id="gamification_science_math_comment" rows="3"
+                              name="gamification_science_math_comment"></textarea>
+                </div>
+            </div>
+
+            <!--Interest in Further Support-->
+            <div class="csc-form-group field required">
+                <p class="header-title-ques">7. Interest in Further Support:</p>
+                <label for="interest_further_support" class="form-label csc-form-label">a. Would your school be
+                    interested in receiving more information or assistance from schoolmart to enhance NEP
+                    readiness?</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="interest_further_support_yes"
+                           name="interest_further_support" value="Yes" required>
+                    <label class="form-check-label" for="interest_further_support_yes">Yes</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="interest_further_support_no"
+                           name="interest_further_support" value="No" required>
+                    <label class="form-check-label" for="interest_further_support_no">No</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="interest_further_support_other"
+                           name="interest_further_support" value="Maybe" required>
+                    <label class="form-check-label" for="interest_further_support_other">Maybe</label>
+                </div>
+                <div class="form-group csc-form-group">
+                    <label for="interest_further_support_comment">If 'Yes' or 'Maybe', specify the areas or topics you
+                        would like more information on.</label>
+                    <textarea class="form-control" id="interest_further_support_comment" rows="3"
+                              name="interest_further_support_comment"></textarea>
+                </div>
+            </div>
+            <!--Additional Comment-->
+            <div class="form-group csc-form-group">
+                <p class="header-title-ques">Additional Comment</p>
+                <label for="additional_comment">Please share your additional ideas, comments, and suggestions with
+                    us.</label>
+                <textarea class="form-control rounded-0" id="additional_comment" rows="3"
+                          name="additional_comment"></textarea>
+            </div>
+        </fieldset>
+        <fieldset class="fieldset submit-form">
+            <div class="actions">
+                <button type="submit" title="Search" class="action primary" aria-label="Search" value="Submit">
+                    <?= 'Submit'; ?>
+                </button>
+            </div>
+        </fieldset>
+    </form>
+</div>
